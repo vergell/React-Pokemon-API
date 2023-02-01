@@ -1,67 +1,53 @@
-.card {
-  position: relative;
-  width: 250px;
-  height: 400px;
-  padding: 10px 15px;
-
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  /* background: radial-gradient(circle at 50% 0%, #8cc488 36%, #fefefe 36.5%); */
-  z-index: -2;
-}
-.poke-img {
-  display: block;
-  max-width: 250px;
-  height: 200px;
-  position: relative;
-  margin: auto;
-  margin-top: -30px;
-  margin-bottom: -10px;
-  z-index: -1;
-}
 .hp {
-  width: 80px;
+  width: 60px;
   background-color: #ffffff;
   text-align: center;
-  padding: 5px 0;
+  padding: 3px 0;
   border-radius: 30px;
-  margin: 0;
+  margin: 5px;
   margin-left: auto;
   font-weight: 400;
+  font-size: 0.7em;
+}
+
+.poke-img {
+  display: block;
+  max-width: 130px;
+  height: 100px;
+  margin: auto;
+  margin-top: -20px;
+  margin-bottom: -10px;
+  z-index: 1;
 }
 .poke-name {
   text-align: center;
   font-weight: 600;
+  font-size: 1.1em;
+  text-transform: capitalize;
 }
 .types {
   display: flex;
   justify-content: space-around;
-  margin: 10px 0 40px 0;
 }
-.hp span,
 .types-span {
   font-size: 12px;
-  letter-spacing: 0.4px;
-  font-weight: 600;
-}
-
-.types-span {
-  padding: 2px 0;
-  color: #ffffff;
-  font-weight: bold;
+  padding: 2px 7px;
   border-radius: 30px;
-  width: 80px;
+  font-size: 0.6em;
+  font-weight: 500;
+  color: #ffffff;
+  background: rgb(113, 131, 86);
 }
 .stats {
-  margin-top: -50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  padding-bottom: 0;
-  margin-bottom: 0;
+  padding: 5px 10px;
+  font-size: 1em;
 }
 .stats p {
   line-height: 0;
   color: #404060;
+  font-size: 0.7em;
 }

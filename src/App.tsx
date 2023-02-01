@@ -14,7 +14,7 @@ function getRandomNumbers(min: number, max: number, count: number): number[] {
   return Array.from(uniqueNumbers);
 }
 function App() {
-  const cards = getRandomNumbers(1, 500, 20);
+  const cards = getRandomNumbers(1, 500, 12);
   return (
     <div className="App">
       {cards.map((number, index) => (

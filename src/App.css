@@ -1,13 +1,21 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
+body {
+  background: #4e8f53;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
 .App {
   display: flex;
   flex-wrap: wrap;
-  width: 98%;
-  margin: 0 auto;
-  gap: 20px;
+  justify-content: center;
+  gap: 2px;
+  width: 900px;
+
+  border-radius: 40px;
+  padding: 10px 0;
 }

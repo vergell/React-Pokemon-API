@@ -10,16 +10,8 @@ export const Card = ({ name, stats, sprites, types }: Pokemon) => {
     return typeColor?.value;
   };
 
-  const handleBackground = (type: any) => {
-    const typeColor = Color.find((item) => item.key === type);
-    return `radial-gradient(circle at 50% 0%, ${typeColor?.value} 36%, #fefefe 36.5%)`;
-  };
-
   return (
-    <div
-      className="card"
-      style={{ background: handleBackground(types[0].type.name) }}
-    >
+    <>
       <p className="hp">
         <span>HP </span>
         {stats[0].base_stat}
@@ -52,6 +44,6 @@ export const Card = ({ name, stats, sprites, types }: Pokemon) => {
           <p>Speed</p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
