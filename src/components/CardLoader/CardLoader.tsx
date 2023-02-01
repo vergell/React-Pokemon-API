@@ -4,7 +4,7 @@ import { Card } from "../Card/CardDisplay";
 import { Pokemon } from "../../types/Pokemon";
 import "./CardLoader.css";
 import { Color } from "../../types/Color";
-import nokemon from "../../assets/nokemon.svg";
+import nokemon from "./2.png";
 
 type Props = { id: number };
 export const CardLoader = (id: Props) => {
@@ -37,7 +37,7 @@ export const CardLoader = (id: Props) => {
             {data && (
               <div className="flip-card-inner">
                 <div className="flip-card-front">
-                  <img src={nokemon} alt="" />
+                  <img src={nokemon} alt="did not" />
                 </div>
                 <div
                   className="flip-card-back"
