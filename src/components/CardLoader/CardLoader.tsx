@@ -4,7 +4,7 @@ import { Card } from "../Card/CardDisplay";
 import { Pokemon } from "../../types/Pokemon";
 import "./CardLoader.css";
 import { Color } from "../../types/Color";
-import nokemon from "./nokemon.svg";
+import nokemon from "../../assets/nokemon.svg";
 
 type Props = { id: number };
 export const CardLoader = (id: Props) => {
