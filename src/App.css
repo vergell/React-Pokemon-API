@@ -3,13 +3,16 @@
   padding: 0;
 }
 body {
-  background: #4e8f53;
+  background: #a5a5a5;
   font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
-
-.App {
+.header {
+  margin: 0 auto;
+}
+.container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
