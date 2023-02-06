@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { PokemonAPI } from "../types/PokemonAPI";
 import axios from "axios";
 
 function getRandomInt(max: number) {
@@ -13,36 +14,6 @@ function getRandomNumbers(min: number, max: number, count: number): number[] {
   }
   return Array.from(uniqueNumbers);
 }
-
-type PokemonAPI = {
-  data: {
-    name: string;
-
-    stats: {
-      base_stat: number;
-    }[];
-
-    types: {
-      type: {
-        name: string;
-      };
-    }[];
-
-    sprites: {
-      other: {
-        dream_world: {
-          front_default: string;
-        };
-      };
-    };
-  };
-};
-
-type Pokemon = {
-  hp: string;
-  name: string;
-  sprite: string;
-};
 
 export const useGetData = () => {
   const cardIds = getRandomNumbers(1, 500, 6);

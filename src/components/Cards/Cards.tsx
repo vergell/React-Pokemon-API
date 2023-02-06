@@ -1,4 +1,3 @@
-import { CardDatas } from "../../types/CardDatas";
 import "./cards.css";
 type CardProps = {
   card: Pokemon;
