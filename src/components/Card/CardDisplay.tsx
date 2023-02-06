@@ -1,9 +1,10 @@
-import { Pokemon } from "../../types/Pokemon";
+import { Pokemon } from "../../types/PokemonAPI";
 import { Color } from "../../types/Color";
 
 import "./CardDisplay.css";
 
 // sprites.other.dream_world.front_default
+
 export const Card = ({ data }: Pokemon) => {
   const handleTypes = (type: any) => {
     const typeColor = Color.find((item) => item.key === type);

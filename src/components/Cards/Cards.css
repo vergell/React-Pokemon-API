@@ -1,0 +1,115 @@
+.flip-card {
+  background-color: transparent;
+  width: 180px;
+  height: 200px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+.active {
+  transform: rotateY(180deg);
+}
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: rgb(49, 72, 149);
+  color: black;
+  display: flex;
+  justify-content: center;
+  box-shadow: inset 1px 1px 1px 10px rgb(34, 53, 116);
+
+  align-items: center;
+}
+
+.flip-card-front img {
+  display: block;
+  width: 80px;
+  height: 80px;
+  transform: rotateY(180deg);
+  filter: invert(84%) sepia(18%) saturate(28%) hue-rotate(344deg)
+    brightness(99%) contrast(99%);
+}
+
+/* Style the back side */
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: radial-gradient(circle at 50% 0%, #cecece 36%, #fefefe 36.5%);
+  background-position: center;
+  background-size: 400px 250px;
+}
+
+.hp {
+  width: 60px;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 3px 0;
+  border-radius: 30px;
+  margin: 5px;
+  margin-left: auto;
+  font-weight: 400;
+  font-size: 0.7em;
+}
+
+.poke-img {
+  display: block;
+  max-width: 140px;
+  height: 110px;
+  margin: auto;
+  margin-top: -30px;
+  margin-bottom: -10px;
+  z-index: 1;
+}
+.poke-name {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1em;
+  text-transform: capitalize;
+}
+.types {
+  display: flex;
+  justify-content: space-around;
+}
+.types-span {
+  font-size: 12px;
+  padding: 2px 7px;
+  border-radius: 30px;
+  font-size: 0.6em;
+  font-weight: 500;
+  color: #ffffff;
+  background: rgb(113, 131, 86);
+}
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 1em;
+}
+.stats p {
+  line-height: 0;
+  color: #404060;
+  font-size: 0.7em;
+}

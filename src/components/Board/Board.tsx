@@ -1,23 +1,18 @@
 import { useGetData } from "../../hooks/useGetData";
 import { useState, useEffect } from "react";
 import { Card } from "../Card/CardDisplay";
-import { Pokemon } from "../../types/Pokemon";
+import { Pokemon } from "../../types/PokemonAPI";
 import "./CardLoader.css";
 import { Color } from "../../types/Color";
 import nokemon from "./2.png";
 
 type Props = { numberOfCards: number };
 
-type Item = {
-  key: number;
-  value: string;
-};
-
 export const Board = (numberOfCards: Props) => {
-  const { response, loading, error } = useGetData(numberOfCards);
+  const { response, loading } = useGetData();
   const [data, setData] = useState<Pokemon[] | any>([]);
-  const [item, setItem] = useState<Item[]>([]);
   const [array, setArray] = useState(Array(12).fill(false));
+  const [active, setActive] = useState<number[]>([]);
 
   useEffect(() => {
     if (loading === false) {
@@ -33,10 +28,21 @@ export const Board = (numberOfCards: Props) => {
   };
 
   function handleFlipCard(index: number) {
+    if (active.length === 2) {
+      active.forEach((a) => {
+        console.log(a);
+      });
+    } else {
+      flipCard(index);
+      setActive([...active, index]);
+    }
+  }
+
+  const flipCard = (index: number) => {
     const newState = [...array];
     newState[index] = !newState[index];
     setArray(newState);
-  }
+  };
 
   if (loading) {
     return (
@@ -70,23 +76,5 @@ export const Board = (numberOfCards: Props) => {
         </div>
       ))}
     </>
-
-    // <div className="flip-card">
-    //   <div className="flip-card-inner">
-    //     <div className="flip-card-front">
-    //       <img src={nokemon} alt="did not" />
-    //     </div>
-    //     <div
-    //       className="flip-card-back"
-    //       style={{
-    //         background: handleBackground(value.types[0].type.name),
-    //         backgroundPosition: "center",
-    //         backgroundSize: "400px 250px",
-    //       }}
-    //     >
-    //       <Card {...value}></Card>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };

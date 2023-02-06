@@ -1,4 +1,4 @@
-export type Pokemon = {
+export type PokemonAPI = {
   data: {
     name: string;
 
