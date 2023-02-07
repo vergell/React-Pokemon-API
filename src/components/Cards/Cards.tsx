@@ -1,7 +1,7 @@
 import { Color } from "../../types/Color";
 import { PokemonCard } from "../../types/pokemonCard";
 import img from "../../assets/2.png";
-import "./cards.css";
+import "./Cards.css";
 
 type CardProps = {
   card: PokemonCard;
