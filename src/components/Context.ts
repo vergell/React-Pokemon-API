@@ -38,15 +38,15 @@ export const Context = () => {
             });
           });
           resetTurn();
-        }, 1000);
+        }, 700);
       }
     }
   }, [choiceOne, choiceTwo]);
 
   const resetTurn = () => {
+    setDisabledCards(false);
     setChoiceOne(null);
     setChoiceTwo(null);
-    setDisabledCards(false);
   };
 
   const handlePokemons = () => {
@@ -57,6 +57,10 @@ export const Context = () => {
         name: value.data.name,
         hp: value.data.stats[0].base_stat,
         sprite: value.data.sprites.other.dream_world.front_default,
+        types: value.data.types,
+        attack: value.data.stats[1].base_stat,
+        deffence: value.data.stats[2].base_stat,
+        speed: value.data.stats[5].base_stat,
         isFlipped: false,
         isMatched: false,
       });
@@ -65,6 +69,10 @@ export const Context = () => {
         name: value.data.name,
         hp: value.data.stats[0].base_stat,
         sprite: value.data.sprites.other.dream_world.front_default,
+        types: value.data.types,
+        attack: value.data.stats[1].base_stat,
+        deffence: value.data.stats[2].base_stat,
+        speed: value.data.stats[5].base_stat,
         isFlipped: false,
         isMatched: false,
       });
