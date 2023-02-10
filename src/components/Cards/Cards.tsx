@@ -24,14 +24,13 @@ export const Cards = ({ card, onClick }: CardProps) => {
 
   const handleClick = () => {
     onClick(card);
-    console.log(card.isFlipped);
   };
   return (
     <>
       <div className="flip-card " onClick={handleClick}>
         <div className={`flip-card-inner ${className}`}>
           <div className="flip-card-front">
-            <img src={img} alt="back of card" />
+            <img draggable="false" src={img} alt="" />
           </div>
           <div
             className="flip-card-back"
@@ -45,7 +44,7 @@ export const Cards = ({ card, onClick }: CardProps) => {
               <span>HP </span>
               {card.hp}
             </p>
-            <img className="poke-img" src={card.sprite} />
+            <img draggable="false" className="poke-img" src={card.sprite} />
             <h2 className="poke-name">{card.name}</h2>
             <div className="types">
               {card.types.map((item, index) => (

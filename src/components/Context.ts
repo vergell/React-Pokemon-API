@@ -5,48 +5,54 @@ import { PokemonCard } from "../types/pokemonCard";
 export const Context = () => {
   const { response, loading } = useGetData();
   const [pokemonCards, setPokemonCards] = useState<PokemonCard[]>([]);
-  const [choiceOne, setChoiceOne] = useState<PokemonCard | null>(null);
-  const [choiceTwo, setChoiceTwo] = useState<PokemonCard | null>(null);
-  const [disabledCards, setDisabledCards] = useState<boolean>(false);
+  const [clickedCards, setClickedCards] = useState<PokemonCard[]>([]);
+  const [start, setStart] = useState(false);
 
   useEffect(() => {
     handlePokemons();
   }, [response]);
 
+  const flipCardBYID = (id: number | undefined, isFlipped: boolean) => {
+    setPokemonCards((prev) =>
+      prev.map((card) => {
+        if (card.id === id) {
+          card.isFlipped = isFlipped;
+        }
+        return card;
+      })
+    );
+  };
+
+  const deleteClickedCards = () => {
+    setClickedCards((prev) =>
+      prev.filter((_, index) => index !== 0 && index !== 1)
+    );
+  };
+
   useEffect(() => {
-    if (choiceOne && choiceTwo) {
-      setDisabledCards(true);
-      if (choiceOne.name === choiceTwo.name) {
-        setPokemonCards((prevCards) =>
-          prevCards.map((card) => {
-            if (card.id === choiceOne?.id || card.id === choiceTwo?.id) {
-              card.isMatched = true;
-              card.isFlipped = true;
-            }
-            return card;
-          })
-        );
-        resetTurn();
+    if (clickedCards.length > 1) {
+      console.log("picked 2 cards");
+      if (clickedCards[0].name === clickedCards[1].name) {
+        flipCardBYID(clickedCards[0].id, true);
+        flipCardBYID(clickedCards[1].id, true);
+        deleteClickedCards();
+        console.log("true");
       } else {
         setTimeout(() => {
-          setPokemonCards((prevCard) => {
-            return prevCard.map((card) => {
-              if (!card.isMatched) {
-                return { ...card, isFlipped: false };
-              }
-              return card;
-            });
-          });
-          resetTurn();
+          flipCardBYID(clickedCards[0].id, false);
+          flipCardBYID(clickedCards[1].id, false);
         }, 700);
+        deleteClickedCards();
+        console.log("deleted");
       }
     }
-  }, [choiceOne, choiceTwo]);
+  }, [clickedCards]);
 
-  const resetTurn = () => {
-    setDisabledCards(false);
-    setChoiceOne(null);
-    setChoiceTwo(null);
+  const handleClick = (card: PokemonCard) => {
+    if (!card.isFlipped) {
+      flipCardBYID(card.id, true);
+      setClickedCards((prevCard) => [...prevCard, card]);
+    }
   };
 
   const handlePokemons = () => {
@@ -86,29 +92,6 @@ export const Context = () => {
     }
     setPokemonCards(temp);
   };
-  const handleClick = (card: PokemonCard) => {
-    if (!disabledCards) {
-      setPokemonCards((prevCard) =>
-        prevCard.map((c) => {
-          if (c.id === card.id) {
-            card.isFlipped = true;
-            return card;
-          }
-          return c;
-        })
-      );
-    }
-
-    if (choiceOne) {
-      if (choiceOne.id !== card.id) setChoiceTwo(card);
-    } else {
-      if (choiceOne === null) {
-        setChoiceOne(card);
-      }
-    }
-    // choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
-  };
-
   const value = {
     loading,
     pokemonCards,

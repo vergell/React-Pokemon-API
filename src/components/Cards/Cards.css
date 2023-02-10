@@ -4,6 +4,7 @@
   height: 200px;
   perspective: 1000px;
   cursor: pointer;
+  user-select: none;
   /* Remove this if you don't want the 3D effect */
 }
 
@@ -41,7 +42,6 @@
   display: flex;
   justify-content: center;
   box-shadow: inset 1px 1px 1px 10px rgb(34, 53, 116);
-
   align-items: center;
 }
 
