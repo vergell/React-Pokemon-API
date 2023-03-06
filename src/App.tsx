@@ -1,16 +1,15 @@
-import "./App.css";
+import "./App.css"
 
-import { Container } from "./components/Container/Container";
+import { Container } from "./components/Container/Container"
 
 function App() {
-  return (
-    <div className="App">
-      <h1 className="title">WIP</h1>
-      <div className="container">
-        <Container></Container>
+   return (
+      <div className="App">
+         <div className="parent-container">
+            <Container />
+         </div>
       </div>
-    </div>
-  );
+   )
 }
 
-export default App;
+export default App
